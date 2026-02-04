@@ -1,0 +1,36 @@
+---
+const nav = [
+  { label: "O mnie", href: "#o-mnie" },
+  { label: "Usługi", href: "#zakres-prac" },
+  { label: "Efekt", href: "#efekt-koncowy" },
+  { label: "Obszar działania", href: "#obszar" },
+  { label: "Kontakt", href: "#kontakt" },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-line/70 bg-sand-50/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-3">
+    <a class="flex items-center gap-3 text-ink-900" href="#top" aria-label="Montaż IKEA">
+      <span class="grid h-10 w-10 place-items-center rounded-lg border border-line bg-white shadow-soft">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 7h8v14H3V7Zm10-4h8v18h-8V3Z" stroke="#8b5e1f" stroke-width="1.5" />
+          <path d="M6.5 10.5h1.5m0 4h1.5m0 4h1.5" stroke="#a0702a" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text-sm font-semibold tracking-wide">Montaż Mebli IKEA</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 text-sm text-ink-700 md:flex">
+      {nav.map((item) => (
+        <a class="transition-colors hover:text-ink-900" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a
+      class="rounded-lg bg-bronze-600 px-4 py-2 text-sm font-semibold text-white shadow-card transition hover:bg-bronze-700"
+      href="#kontakt"
+    >
+      Kontakt
+    </a>
+  </div>
+</header>
