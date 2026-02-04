@@ -20,3 +20,8 @@ h1, h2, h3, h4 {
 }
 
 ::selection { background: rgba(160,112,42,0.25); }
+
+.below-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}

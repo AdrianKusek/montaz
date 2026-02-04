@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 import hero from "../assets/hero.jpg";
@@ -29,6 +29,13 @@ const kroki = [
   "Montaż, poziomowanie i regulacje.",
   "Odbiór końcowy i porządek po pracy.",
 ];
+
+const heroImage = await getImage({
+  src: hero,
+  widths: [480, 768, 1024, 1280, 1536],
+  sizes: "100vw",
+  format: "avif",
+});
 ---
 
 <html lang="pl">
@@ -46,6 +53,13 @@ const kroki = [
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="preload"
+      as="image"
+      href={heroImage.src}
+      imagesrcset={heroImage.srcset}
+      imagesizes="100vw"
+    />
   </head>
   <body class="min-h-screen" id="top">
     <Header />
@@ -59,6 +73,7 @@ const kroki = [
           sizes="100vw"
           width={1600}
           height={1200}
+          format="avif"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -98,7 +113,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="zakres-prac" class="border-t border-line/70 bg-sand-50">
+      <section id="zakres-prac" class="below-fold border-t border-line/70 bg-sand-50">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">
             Zakres prac przy montażu mebli IKEA
@@ -127,7 +142,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="efekt-koncowy" class="border-t border-line/70 bg-sand-100/60">
+      <section id="efekt-koncowy" class="below-fold border-t border-line/70 bg-sand-100/60">
         <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="space-y-5">
             <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">Efekt końcowy</h2>
@@ -158,7 +173,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="jak-pracuje" class="border-t border-line/70 bg-sand-50">
+      <section id="jak-pracuje" class="below-fold border-t border-line/70 bg-sand-50">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">Jak pracuję — krok po kroku</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-2">
@@ -174,7 +189,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="dla-kogo" class="border-t border-line/70 bg-sand-100/60">
+      <section id="dla-kogo" class="below-fold border-t border-line/70 bg-sand-100/60">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">Dla kogo</h2>
           <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -194,7 +209,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="obszar" class="border-t border-line/70 bg-sand-50">
+      <section id="obszar" class="below-fold border-t border-line/70 bg-sand-50">
         <div class="mx-auto max-w-6xl px-4 py-12">
           <div class="flex flex-wrap items-end justify-between gap-4">
             <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">Obszar działania</h2>
@@ -215,7 +230,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="o-mnie" class="border-t border-line/70 bg-sand-100/60">
+      <section id="o-mnie" class="below-fold border-t border-line/70 bg-sand-100/60">
         <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div class="space-y-5">
             <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">O mnie</h2>
@@ -248,7 +263,7 @@ const kroki = [
         </div>
       </section>
 
-      <section id="kontakt" class="border-t border-line/70 bg-sand-50">
+      <section id="kontakt" class="below-fold border-t border-line/70 bg-sand-50">
         <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div class="space-y-5">
             <h2 class="text-2xl font-semibold text-ink-900 sm:text-3xl">Kontakt</h2>
