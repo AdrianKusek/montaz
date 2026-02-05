@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://montaz.pages.dev/sitemap.xml
