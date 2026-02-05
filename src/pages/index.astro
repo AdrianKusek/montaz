@@ -62,7 +62,7 @@ const heroImage = await getImage({
       rel="preload"
       as="image"
       href={heroImage.src}
-      imagesrcset={heroImage.srcset}
+      imagesrcset={heroImage.srcSet.attribute}
       imagesizes="100vw"
     />
   </head>
@@ -76,8 +76,8 @@ const heroImage = await getImage({
           class="absolute inset-0 h-full w-full object-cover"
           widths={[480, 768, 1024, 1280, 1536]}
           sizes="100vw"
-          width={1600}
-          height={1200}
+          width={1536}
+          height={1024}
           format="avif"
           loading="eager"
           fetchpriority="high"
